@@ -1,0 +1,5 @@
+function [ u ] = CUF( o, c, gamma )
+    k = a
+
+end
+
