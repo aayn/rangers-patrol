@@ -1,0 +1,21 @@
+%function f = fminc(x)
+%    f = sum(x);
+%    x0 = [10; 10; 10];
+%    p1 = 1;
+%    p2 = 72;
+%    lb = [0 0 0];
+%    ub = [ 50 50 50];
+%    options = optimset('Largescale','off','Display','iter');
+%    [x, fval] = fmincon(@(x)fun(x,p1), x0, [], [], [], [], lb, ub, @(x)nonlcon(x,p1,p2), options)
+%end
+
+fun = @(x,p1)-x(1) * x(2) * x(3)*p1;
+x0 = [10, 10, 10];
+    p1 = 1;
+    p2 = 72;
+    lb = [0 0 0];
+    ub = [50 0 50];
+    nonlcon = [];
+    options = optimset('Largescale','off','Display','iter');
+    [x, fval] = fmincon(@(x)fun(x,p1), x0, [], [], [], [], lb, ub, nonlcon, options);
+
